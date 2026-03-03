@@ -21,5 +21,16 @@
         <p>Deliciosa comida y snacks para disfrutar durante tu visita</p>
       </div>
     </div>
+
+    <!-- Sección de Estadísticas -->
+    <div class="stats-section">
+      <h2 class="scroll-animate">Tivoli World en Números</h2>
+      <div class="stats-grid">
+        <app-counter [endValue]="50" label="Atracciones" [suffix]="'+'"></app-counter>
+        <app-counter [endValue]="30" label="Shows Anuales" [suffix]="'+'"></app-counter>
+        <app-counter [endValue]="52" label="Años de Historia"></app-counter>
+        <app-counter [endValue]="2000000" label="Visitantes Anuales" [duration]="2500"></app-counter>
+      </div>
+    </div>
   </div>
 </section>

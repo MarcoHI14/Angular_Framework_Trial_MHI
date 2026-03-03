@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import {About} from "../about/about";
-import {PlayerComponent} from "../player/player";
+import { PlayerComponent } from "../player/player";
 
 @Component({
   selector: 'app-hero',
-    imports: [
-        PlayerComponent
-    ],
+  imports: [
+    PlayerComponent
+  ],
   templateUrl: './hero.html',
   styleUrl: './hero.css',
 })

@@ -8,6 +8,17 @@
   --tivoli-gray: #f6f6f6;
 }
 
+/* Dark Mode - Intercambio de negro y blanco */
+:root[data-theme="dark"] {
+  --tivoli-white: #111111;         /* Fondo negro (antes era blanco) */
+  --tivoli-red: #c8102e;           /* Rojo igual */
+  --tivoli-red-dark: #8f0f22;      /* Rojo oscuro igual */
+  --tivoli-yellow: #ffd200;        /* Amarillo igual */
+  --tivoli-yellow-soft: #ffe66d;   /* Amarillo suave igual */
+  --tivoli-black: #ffffff;         /* Texto blanco (antes era negro) */
+  --tivoli-gray: #1a1a1a;          /* Gris oscuro */
+}
+
 * {
   box-sizing: border-box;
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
@@ -78,6 +89,39 @@ strong {
 em {
   font-style: italic;
   color: var(--tivoli-red-dark);
+}
+
+/* Skeleton Loader Animations */
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 8px;
+}
+
+.skeleton-text {
+  height: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.skeleton-image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 12px;
+}
+
+.skeleton-card {
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 /* Scroll Animations */

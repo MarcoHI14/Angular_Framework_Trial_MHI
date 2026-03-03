@@ -4,7 +4,31 @@
       <h2>🎢 Tivoli World</h2>
     </div>
 
+    <!-- Menu Desktop -->
     <ul class="navbar-menu">
+      <li><a (click)="scrollToSection('about')">Sobre Nosotros</a></li>
+      <li><a (click)="scrollToSection('attractions')">Atracciones</a></li>
+      <li><a (click)="scrollToSection('gallery')">Galería</a></li>
+      <li><a (click)="scrollToSection('info')">Información</a></li>
+    </ul>
+
+    <!-- Theme Toggle + Hamburger Menu -->
+    <div class="navbar-actions">
+      <button class="theme-toggle" (click)="toggleTheme()" [attr.aria-label]="isDarkMode ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'">
+        {{ isDarkMode ? '☀️' : '🌙' }}
+      </button>
+
+      <button class="hamburger" (click)="toggleMenu()" [class.active]="isMenuOpen" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" [class.open]="isMenuOpen">
+    <ul class="mobile-menu-list">
       <li><a (click)="scrollToSection('about')">Sobre Nosotros</a></li>
       <li><a (click)="scrollToSection('attractions')">Atracciones</a></li>
       <li><a (click)="scrollToSection('gallery')">Galería</a></li>
