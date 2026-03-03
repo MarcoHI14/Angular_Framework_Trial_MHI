@@ -1,7 +1,19 @@
 .hero {
   background: linear-gradient(135deg, var(--tivoli-yellow) 0%, var(--tivoli-red) 100%);
-  padding: 40px 20px 60px 20px;
+  padding: 40px 20px 80px 20px;
   color: var(--tivoli-black);
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, var(--tivoli-red-dark));
+  pointer-events: none;
 }
 
 .hero-img {

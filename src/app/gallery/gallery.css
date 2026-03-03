@@ -1,6 +1,29 @@
 .gallery-section {
   background: var(--tivoli-white);
-  padding: 80px 20px;
+  padding: 100px 20px 100px 20px;
+  position: relative;
+}
+
+.gallery-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, var(--tivoli-white), transparent);
+  pointer-events: none;
+}
+
+.gallery-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, var(--tivoli-red));
+  pointer-events: none;
 }
 
 .container {

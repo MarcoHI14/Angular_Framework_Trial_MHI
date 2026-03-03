@@ -1,7 +1,19 @@
 footer {
   background: var(--tivoli-black);
   color: var(--tivoli-white);
-  padding: 60px 20px 30px 20px;
+  padding: 100px 20px 30px 20px;
+  position: relative;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, var(--tivoli-black), transparent);
+  pointer-events: none;
 }
 
 .container {

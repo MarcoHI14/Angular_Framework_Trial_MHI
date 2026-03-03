@@ -1,7 +1,30 @@
 .info {
   background: linear-gradient(135deg, var(--tivoli-red) 0%, var(--tivoli-yellow) 100%);
-  padding: 80px 20px;
+  padding: 100px 20px 100px 20px;
   color: var(--tivoli-black);
+  position: relative;
+}
+
+.info::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, var(--tivoli-red), transparent);
+  pointer-events: none;
+}
+
+.info::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, var(--tivoli-black));
+  pointer-events: none;
 }
 
 .container {
