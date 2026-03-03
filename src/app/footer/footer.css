@@ -29,24 +29,30 @@ footer::before {
 }
 
 .footer-section h3 {
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-  font-weight: 700;
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  margin-bottom: 20px;
+  font-weight: 800;
   color: var(--tivoli-yellow);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .footer-section h4 {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
   margin-bottom: 20px;
   font-weight: 700;
   color: var(--tivoli-red);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .footer-section p {
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  line-height: 1.7;
   opacity: 0.92;
   max-width: 100%;
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
 .footer-section ul {
@@ -64,7 +70,9 @@ footer::before {
   text-decoration: none;
   opacity: 0.85;
   transition: opacity 0.3s ease, color 0.3s ease;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
 .footer-section ul li a:hover {
@@ -107,10 +115,12 @@ footer::before {
 .footer-meta {
   margin: 0 auto;
   opacity: 0.82;
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 1.8vw, 1rem);
   width: 100%;
   max-width: none;
   text-align: center;
+  font-weight: 400;
+  letter-spacing: 0.02em;
 }
 
 .footer-bottom p {

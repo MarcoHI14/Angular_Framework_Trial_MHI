@@ -32,16 +32,22 @@
 }
 
 h2 {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  margin-bottom: 20px;
   color: var(--tivoli-red);
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
 }
 
 .subtitle {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
   color: var(--tivoli-black);
   margin-bottom: 50px;
+  font-weight: 500;
+  opacity: 0.85;
+  font-style: italic;
+  letter-spacing: 0.01em;
 }
 
 .gallery-grid {
@@ -93,7 +99,9 @@ h2 {
 
 .gallery-overlay span {
   color: var(--tivoli-yellow);
-  font-size: 1.2rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
   font-weight: 700;
   display: block;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
