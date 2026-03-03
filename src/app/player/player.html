@@ -1,0 +1,79 @@
+<div class="player">
+
+  <!-- Imagen a la izquierda -->
+  <div class="cover-container">
+    <img src="assets/images/Tivoli.png" alt="Tivoli" class="cover">
+  </div>
+
+  <!-- Zona derecha -->
+  <div class="content">
+
+    <div class="track-info">
+      <h2>{{ currentTrack.title }}</h2>
+      <p>{{ currentTrack.artist }}</p>
+    </div>
+
+    <audio
+      #audioPlayer
+      [src]="currentTrack.url"
+      autoplay
+      playsinline
+      preload="auto"
+      (ended)="next()">
+    </audio>
+
+    <!-- Barra de progreso -->
+    <div class="progress-container">
+      <span>{{ formatTime(currentTime) }}</span>
+
+      <input
+        type="range"
+        min="0"
+        [max]="duration"
+        [value]="currentTime"
+        (input)="seek($event)"
+        (mousedown)="onSeekStart()"
+        (mouseup)="onSeekEnd()"
+        (touchstart)="onSeekStart()"
+        (touchend)="onSeekEnd()"
+        class="progress-bar"
+        [style.--progress]="progress + '%'"
+      >
+
+      <span>{{ formatTime(duration) }}</span>
+    </div>
+
+    <!-- Controles -->
+    <div class="controls">
+      <button (click)="previous()">⏮</button>
+
+      <button class="play-btn" (click)="togglePlay()">
+        {{ isPlaying ? '⏸' : '▶' }}
+      </button>
+
+      <button (click)="next()">⏭</button>
+
+      <!-- Control de Volumen en la misma fila -->
+      <div class="volume-controls">
+        <button class="volume-btn" (click)="toggleMute()">
+          {{ isMuted ? '🔇' : (volume > 0.5 ? '🔊' : (volume > 0 ? '🔉' : '🔈')) }}
+        </button>
+
+        <input
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          [value]="volume"
+          (input)="changeVolume($event)"
+          class="volume-bar"
+          [style.--volume]="(volume * 100) + '%'"
+        >
+
+        <span class="volume-percentage">{{ (volume * 100).toFixed(0) }}%</span>
+      </div>
+    </div>
+
+  </div>
+
+</div>

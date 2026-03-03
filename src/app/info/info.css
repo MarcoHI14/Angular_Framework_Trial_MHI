@@ -1,0 +1,119 @@
+.info {
+  background: linear-gradient(135deg, var(--tivoli-red) 0%, var(--tivoli-yellow) 100%);
+  padding: 80px 20px;
+  color: var(--tivoli-black);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: var(--tivoli-black);
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 50px;
+  opacity: 0.95;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.74);
+  backdrop-filter: blur(8px);
+  padding: 35px 25px;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.info-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.info-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: var(--tivoli-red);
+}
+
+.info-detail {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.info-note {
+  font-size: 0.9rem;
+  margin-top: 15px;
+  opacity: 0.85;
+  font-style: italic;
+}
+
+.cta-section {
+  text-align: center;
+  margin-top: 60px;
+  background: rgba(17, 17, 17, 0.86);
+  color: var(--tivoli-white);
+  backdrop-filter: blur(8px);
+  padding: 50px 30px;
+  border-radius: 25px;
+  border: 2px solid var(--tivoli-yellow);
+}
+
+.cta-section h3 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: var(--tivoli-yellow);
+}
+
+.cta-section p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  opacity: 0.95;
+}
+
+.cta-button {
+  background: var(--tivoli-red);
+  color: var(--tivoli-white);
+  border: 2px solid var(--tivoli-yellow);
+  padding: 18px 45px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+  background: var(--tivoli-yellow);
+  color: var(--tivoli-black);
+}
+
+.cta-button:active {
+  transform: translateY(-1px);
+}

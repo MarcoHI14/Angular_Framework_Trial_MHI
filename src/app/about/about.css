@@ -1,0 +1,66 @@
+.about {
+  background: linear-gradient(135deg, var(--tivoli-red) 0%, var(--tivoli-red-dark) 100%);
+  color: var(--tivoli-white);
+  padding: 80px 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: var(--tivoli-yellow);
+}
+
+.lead {
+  font-size: 1.3rem;
+  margin-bottom: 60px;
+  opacity: 0.95;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-top: 50px;
+}
+
+.feature {
+  background: rgba(255, 210, 0, 0.14);
+  backdrop-filter: blur(6px);
+  padding: 40px 30px;
+  border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.feature:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.32);
+  background: rgba(255, 210, 0, 0.24);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.feature h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: var(--tivoli-yellow);
+}
+
+.feature p {
+  font-size: 1rem;
+  opacity: 0.95;
+  line-height: 1.6;
+}

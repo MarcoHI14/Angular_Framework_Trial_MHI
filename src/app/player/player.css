@@ -1,0 +1,282 @@
+body {
+  margin: 0;
+  background: #ffffff;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+/* Contenedor horizontal */
+.player {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+
+  max-width: 900px;
+  margin:30px auto;
+  padding: 20px 30px;
+
+  background: #ffffff;
+  border-radius: 16px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Imagen */
+.cover-container {
+  flex-shrink: 0;
+}
+
+.cover {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Contenido derecho */
+.content {
+  flex: 1;
+}
+
+/* Información */
+.track-info h2 {
+  margin: 0;
+  font-weight: 600;
+  color: #ff6a00; /* naranja principal */
+}
+
+.track-info p {
+  margin: 4px 0 15px 0;
+  color: #555;
+  font-size: 14px;
+}
+
+/* Barra progreso */
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+}
+
+.progress-bar {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  background: linear-gradient(to right, #ff6a00 0%, #ff6a00 var(--progress, 0%), #e0e0e0 var(--progress, 0%), #e0e0e0 100%);
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  transition: height 0.2s ease;
+}
+
+.progress-bar:hover {
+  height: 8px;
+}
+
+/* Thumb para WebKit (Chrome, Safari, Edge) */
+.progress-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ff6a00;
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.progress-bar::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 3px 10px rgba(255, 106, 0, 0.4);
+}
+
+.progress-bar::-webkit-slider-thumb:active {
+  transform: scale(1.1);
+}
+
+/* Thumb para Firefox */
+.progress-bar::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ff6a00;
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.progress-bar::-moz-range-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 3px 10px rgba(255, 106, 0, 0.4);
+}
+
+.progress-bar::-moz-range-thumb:active {
+  transform: scale(1.1);
+}
+
+/* Track para Firefox */
+.progress-bar::-moz-range-track {
+  height: 6px;
+  background: #e0e0e0;
+  border-radius: 10px;
+}
+
+.progress-bar::-moz-range-progress {
+  height: 6px;
+  background: #ff6a00;
+  border-radius: 10px;
+}
+
+/* Controles */
+.controls {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.controls button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #444;
+  transition: 0.2s ease;
+}
+
+.controls button:hover {
+  color: #ff6a00;
+}
+
+/* Botón principal */
+.play-btn {
+  background: #ff6a00;
+  color: white;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 4px 12px rgba(255, 106, 0, 0.4);
+  transition: 0.2s ease;
+}
+
+.play-btn:hover {
+  transform: scale(1.08);
+}
+
+/* Control de Volumen en la misma fila */
+.volume-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  padding-left: 20px;
+  border-left: 1px solid #e0e0e0;
+}
+
+.volume-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  padding: 0;
+  color: #444;
+}
+
+.volume-btn:hover {
+  transform: scale(1.15);
+  color: #ff6a00;
+}
+
+.volume-bar {
+  width: 80px;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 5px;
+  background: linear-gradient(to right, #ff6a00 0%, #ff6a00 var(--volume, 100%), #e0e0e0 var(--volume, 100%), #e0e0e0 100%);
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  transition: height 0.2s ease;
+}
+
+.volume-bar:hover {
+  height: 7px;
+}
+
+/* Thumb para WebKit (Chrome, Safari, Edge) - Volumen */
+.volume-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ff6a00;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.volume-bar::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 3px 8px rgba(255, 106, 0, 0.4);
+}
+
+.volume-bar::-webkit-slider-thumb:active {
+  transform: scale(1.1);
+}
+
+/* Thumb para Firefox - Volumen */
+.volume-bar::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ff6a00;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.volume-bar::-moz-range-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 3px 8px rgba(255, 106, 0, 0.4);
+}
+
+.volume-bar::-moz-range-thumb:active {
+  transform: scale(1.1);
+}
+
+/* Track para Firefox - Volumen */
+.volume-bar::-moz-range-track {
+  height: 5px;
+  background: #e0e0e0;
+  border-radius: 10px;
+}
+
+.volume-bar::-moz-range-progress {
+  height: 5px;
+  background: #ff6a00;
+  border-radius: 10px;
+}
+
+.volume-percentage {
+  font-size: 11px;
+  color: #666;
+  font-weight: 500;
+  min-width: 35px;
+  text-align: right;
+}
