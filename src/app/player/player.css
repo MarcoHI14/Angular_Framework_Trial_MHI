@@ -7,7 +7,7 @@ body {
 /* Contenedor horizontal */
 .player {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 25px;
 
   max-width: 900px;
@@ -23,6 +23,8 @@ body {
 /* Imagen */
 .cover-container {
   flex-shrink: 0;
+  position: sticky;
+  top: 0;
 }
 
 .cover {
@@ -279,4 +281,148 @@ body {
   font-weight: 500;
   min-width: 35px;
   text-align: right;
+}
+
+/* Playlist Visual */
+.playlist-container {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.playlist-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 10px 0;
+}
+
+.playlist-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--tivoli-red);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.playlist-toggle {
+  background: none;
+  border: none;
+  color: var(--tivoli-red);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.playlist-toggle:hover {
+  color: var(--tivoli-yellow);
+  transform: scale(1.2);
+}
+
+.playlist {
+  max-height: 250px;
+  overflow-y: auto;
+  margin-top: 10px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.03);
+  padding: 5px;
+}
+
+.playlist-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  margin: 5px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  border-left: 3px solid transparent;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+}
+
+.playlist-item:hover {
+  background: rgba(200, 16, 46, 0.1);
+  border-left-color: var(--tivoli-red);
+  transform: translateX(5px);
+}
+
+.playlist-item.active {
+  background: linear-gradient(90deg, rgba(200, 16, 46, 0.2), rgba(255, 210, 0, 0.1));
+  border-left-color: var(--tivoli-yellow);
+  font-weight: 600;
+}
+
+.track-number {
+  min-width: 25px;
+  font-size: 0.85rem;
+  color: var(--tivoli-red);
+  font-weight: 700;
+  text-align: center;
+  opacity: 0.7;
+}
+
+.playlist-item.active .track-number {
+  opacity: 1;
+}
+
+.track-details {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+
+.track-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--tivoli-black);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.playlist-item.active .track-title {
+  color: var(--tivoli-red);
+}
+
+.track-artist {
+  font-size: 0.8rem;
+  color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.play-indicator {
+  color: var(--tivoli-yellow);
+  font-size: 0.9rem;
+  animation: pulse 0.8s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@media (max-width: 768px) {
+  .playlist {
+    max-height: 200px;
+  }
+
+  .playlist-item {
+    padding: 8px 10px;
+  }
+
+  .track-title {
+    font-size: 0.9rem;
+  }
+
+  .track-artist {
+    font-size: 0.75rem;
+  }
 }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, inject } from '@angular/core';
+import { ScrollAnimationService } from '../services/scroll-animation.service';
 
 @Component({
   selector: 'app-info',
@@ -6,6 +7,10 @@ import { Component } from '@angular/core';
   templateUrl: './info.html',
   styleUrl: './info.css',
 })
-export class Info {
+export class Info implements AfterViewInit {
+  private scrollAnimationService = inject(ScrollAnimationService);
 
+  ngAfterViewInit() {
+    this.scrollAnimationService.observeElements('.info-card');
+  }
 }

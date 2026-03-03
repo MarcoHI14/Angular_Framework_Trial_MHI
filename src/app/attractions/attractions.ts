@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ScrollAnimationService } from '../services/scroll-animation.service';
 
 interface Attraction {
   name: string;
@@ -15,7 +16,9 @@ interface Attraction {
   templateUrl: './attractions.html',
   styleUrls: ['./attractions.css']
 })
-export class AttractionsComponent {
+export class AttractionsComponent implements AfterViewInit {
+  private scrollAnimationService = inject(ScrollAnimationService);
+
   attractions: Attraction[] = [
     {
       name: 'Aquática',
@@ -36,5 +39,9 @@ export class AttractionsComponent {
       type: 'Adrenalina'
     }
   ];
+
+  ngAfterViewInit() {
+    this.scrollAnimationService.observeElements('.attraction-card');
+  }
 }
 

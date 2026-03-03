@@ -1,0 +1,33 @@
+<div class="modal-backdrop" *ngIf="isOpen" (click)="onBackdropClick($event)">
+  <div class="modal-content">
+    <button class="modal-close" (click)="closeModal()" aria-label="Cerrar">✕</button>
+
+    <div class="modal-image-container">
+      <img [src]="currentImage.url" [alt]="currentImage.title" class="modal-image">
+    </div>
+
+    <div class="modal-info">
+      <h3>{{ currentImage.title }}</h3>
+      <p>{{ currentIndex + 1 }} de {{ images.length }}</p>
+    </div>
+
+    <button class="modal-nav modal-prev" (click)="previousImage()" aria-label="Imagen anterior">
+      ◀ Anterior
+    </button>
+
+    <button class="modal-nav modal-next" (click)="nextImage()" aria-label="Siguiente imagen">
+      Siguiente ▶
+    </button>
+
+    <div class="modal-dots">
+      <button
+        *ngFor="let _ of images; let i = index"
+        class="dot"
+        [class.active]="i === currentIndex"
+        (click)="currentIndex = i"
+        [attr.aria-label]="'Imagen ' + (i + 1)">
+      </button>
+    </div>
+  </div>
+</div>
+

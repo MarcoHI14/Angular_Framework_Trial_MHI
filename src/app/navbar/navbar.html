@@ -1,0 +1,15 @@
+<nav class="navbar" [class.scrolled]="isScrolled">
+  <div class="navbar-container">
+    <div class="navbar-brand">
+      <h2>🎢 Tivoli World</h2>
+    </div>
+
+    <ul class="navbar-menu">
+      <li><a (click)="scrollToSection('about')">Sobre Nosotros</a></li>
+      <li><a (click)="scrollToSection('attractions')">Atracciones</a></li>
+      <li><a (click)="scrollToSection('gallery')">Galería</a></li>
+      <li><a (click)="scrollToSection('info')">Información</a></li>
+    </ul>
+  </div>
+</nav>
+

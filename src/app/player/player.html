@@ -17,7 +17,7 @@
       #audioPlayer
       [src]="currentTrack.url"
       autoplay
-      playsinline
+      [attr.playsinline]="true"
       preload="auto"
       (ended)="next()">
     </audio>
@@ -38,6 +38,7 @@
         (touchend)="onSeekEnd()"
         class="progress-bar"
         [style.--progress]="progress + '%'"
+        aria-label="Barra de progreso de la canción"
       >
 
       <span>{{ formatTime(duration) }}</span>
@@ -45,17 +46,17 @@
 
     <!-- Controles -->
     <div class="controls">
-      <button (click)="previous()">⏮</button>
+      <button (click)="previous()" aria-label="Canción anterior">⏮</button>
 
-      <button class="play-btn" (click)="togglePlay()">
+      <button class="play-btn" (click)="togglePlay()" [attr.aria-label]="isPlaying ? 'Pausar' : 'Reproducir'">
         {{ isPlaying ? '⏸' : '▶' }}
       </button>
 
-      <button (click)="next()">⏭</button>
+      <button (click)="next()" aria-label="Siguiente canción">⏭</button>
 
       <!-- Control de Volumen en la misma fila -->
       <div class="volume-controls">
-        <button class="volume-btn" (click)="toggleMute()">
+        <button class="volume-btn" (click)="toggleMute()" [attr.aria-label]="isMuted ? 'Activar sonido' : 'Silenciar'">
           {{ isMuted ? '🔇' : (volume > 0.5 ? '🔊' : (volume > 0 ? '🔉' : '🔈')) }}
         </button>
 
@@ -68,9 +69,36 @@
           (input)="changeVolume($event)"
           class="volume-bar"
           [style.--volume]="(volume * 100) + '%'"
+          aria-label="Control de volumen"
         >
 
         <span class="volume-percentage">{{ (volume * 100).toFixed(0) }}%</span>
+      </div>
+    </div>
+
+    <!-- Playlist Visual -->
+    <div class="playlist-container">
+      <div class="playlist-header" (click)="togglePlaylist()">
+        <h3>Playlist</h3>
+        <button class="playlist-toggle" (click)="togglePlaylist(); $event.stopPropagation()" [attr.aria-label]="showPlaylist ? 'Ocultar playlist' : 'Mostrar playlist'" [attr.aria-expanded]="showPlaylist">
+          {{ showPlaylist ? '▼' : '▶' }}
+        </button>
+      </div>
+
+      <div class="playlist" *ngIf="showPlaylist">
+        <button
+          class="playlist-item"
+          *ngFor="let track of playlist; let i = index"
+          [class.active]="i === currentTrackIndex"
+          (click)="playTrack(i)"
+          [attr.aria-label]="'Reproducir ' + track.title + ' de ' + track.artist">
+          <span class="track-number">{{ i + 1 }}</span>
+          <div class="track-details">
+            <div class="track-title">{{ track.title }}</div>
+            <div class="track-artist">{{ track.artist }}</div>
+          </div>
+          <span class="play-indicator" *ngIf="i === currentTrackIndex" aria-hidden="true">▶</span>
+        </button>
       </div>
     </div>
 

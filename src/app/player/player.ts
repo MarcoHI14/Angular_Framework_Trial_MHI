@@ -6,6 +6,7 @@ import {
   ChangeDetectorRef,
   OnDestroy
 } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 interface Track {
   title: string;
@@ -15,6 +16,7 @@ interface Track {
 
 @Component({
   selector: 'app-player',
+  imports: [CommonModule],
   templateUrl: './player.html',
   styleUrls: ['./player.css']
 })
@@ -41,6 +43,7 @@ export class PlayerComponent implements AfterViewInit, OnDestroy {
   volume = 1;
   isSeeking = false;
   isMuted = false;
+  showPlaylist = false;
   private removeAutoplayUnlockListeners?: () => void;
   private shouldRetryAutoplayWhenReady = false;
   private autoplayRetryCount = 0;
@@ -184,6 +187,15 @@ export class PlayerComponent implements AfterViewInit, OnDestroy {
     this.isMuted = !this.isMuted;
     this.audioPlayer.nativeElement.muted = this.isMuted;
     this.cdr.detectChanges();
+  }
+
+  togglePlaylist() {
+    this.showPlaylist = !this.showPlaylist;
+  }
+
+  playTrack(index: number) {
+    this.currentTrackIndex = index;
+    this.resetAndPlay();
   }
 
   formatTime(time: number): string {

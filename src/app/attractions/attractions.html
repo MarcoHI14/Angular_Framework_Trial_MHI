@@ -1,10 +1,10 @@
 <section class="attractions">
   <div class="container">
-    <h2>Atracciones Destacadas</h2>
-    <p class="subtitle">Descubre las experiencias más emocionantes del parque</p>
+    <h2 class="scroll-animate">Atracciones Destacadas</h2>
+    <p class="subtitle scroll-animate">Descubre las experiencias más emocionantes del parque</p>
 
     <div class="attractions-grid">
-      <div class="attraction-card" *ngFor="let attraction of attractions">
+      <div class="attraction-card scroll-animate" *ngFor="let attraction of attractions">
         <div class="card-image">
           <img [src]="attraction.image" [alt]="attraction.name">
           <span class="card-badge">{{ attraction.type }}</span>
