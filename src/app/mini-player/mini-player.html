@@ -2,6 +2,7 @@
   <button
     class="mini-toggle"
     type="button"
+    *ngIf="!forceExpandedOnMobile"
     (click)="toggleMobileCollapse()"
     [attr.aria-label]="isMobileCollapsed ? 'Expandir reproductor' : 'Colapsar reproductor'">
     {{ isMobileCollapsed ? '▲' : '▼' }}

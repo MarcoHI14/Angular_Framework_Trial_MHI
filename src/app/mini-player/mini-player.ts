@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit, inject } from '@angular/core';
+import { Component, HostListener, Input, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AudioService } from '../services/audio.service';
 
@@ -18,6 +18,7 @@ export class MiniPlayerComponent implements OnInit {
   duration$ = this.audioService.duration$;
   volume$ = this.audioService.volume$;
 
+  @Input() forceExpandedOnMobile = false;
   isMobileCollapsed = false;
 
   ngOnInit(): void {
@@ -50,11 +51,17 @@ export class MiniPlayerComponent implements OnInit {
   }
 
   toggleMobileCollapse(): void {
+    if (this.forceExpandedOnMobile) return;
     this.isMobileCollapsed = !this.isMobileCollapsed;
   }
 
   private syncMobileState(): void {
     if (typeof window === 'undefined') return;
+
+    if (this.forceExpandedOnMobile) {
+      this.isMobileCollapsed = false;
+      return;
+    }
 
     if (window.innerWidth > 768) {
       this.isMobileCollapsed = false;
@@ -75,4 +82,3 @@ export class MiniPlayerComponent implements OnInit {
     return duration ? (currentTime / duration) * 100 : 0;
   }
 }
-
