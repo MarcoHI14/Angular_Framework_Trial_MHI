@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,12 +8,16 @@ import { CommonModule } from '@angular/common';
   templateUrl: './scroll-to-top.html',
   styleUrls: ['./scroll-to-top.css']
 })
-export class ScrollToTopComponent {
+export class ScrollToTopComponent implements OnInit {
   isVisible = false;
+
+  ngOnInit() {
+    this.onWindowScroll();
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    this.isVisible = window.scrollY > 300;
+    this.isVisible = window.scrollY > 120;
   }
 
   scrollToTop() {
@@ -23,4 +27,3 @@ export class ScrollToTopComponent {
     });
   }
 }
-

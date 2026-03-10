@@ -1,0 +1,26 @@
+<section class="timeline-section">
+  <div class="container">
+    <h2 class="scroll-animate">Nuestra Historia</h2>
+    <p class="timeline-subtitle scroll-animate">52 años brindando magia y entretenimiento a millones de visitantes</p>
+
+    <div class="timeline">
+      <div
+        class="timeline-item"
+        *ngFor="let event of events"
+        [attr.data-year]="event.year">
+
+        <div class="timeline-marker">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">{{ event.year }}</div>
+        </div>
+
+        <div class="timeline-content scroll-animate">
+          <div class="timeline-icon">{{ event.icon }}</div>
+          <h3>{{ event.title }}</h3>
+          <p>{{ event.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

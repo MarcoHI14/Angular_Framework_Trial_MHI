@@ -13,51 +13,38 @@
       <p>{{ currentTrack.artist }}</p>
     </div>
 
-    <audio
-      #audioPlayer
-      [src]="currentTrack.url"
-      autoplay
-      [attr.playsinline]="true"
-      preload="auto"
-      (ended)="next()">
-    </audio>
-
     <!-- Barra de progreso -->
     <div class="progress-container">
-      <span>{{ formatTime(currentTime) }}</span>
+      <span>{{ formatTime((currentTime$ | async) || 0) }}</span>
 
       <input
         type="range"
         min="0"
-        [max]="duration"
-        [value]="currentTime"
-        (input)="seek($event)"
-        (mousedown)="onSeekStart()"
-        (mouseup)="onSeekEnd()"
-        (touchstart)="onSeekStart()"
-        (touchend)="onSeekEnd()"
+        [max]="(duration$ | async) || 0"
+        [value]="(currentTime$ | async) || 0"
+        (input)="seek(+$event.target.value)"
         class="progress-bar"
-        [style.--progress]="progress + '%'"
+        [style.--progress]="getProgress((currentTime$ | async) || 0, (duration$ | async) || 0) + '%'"
         aria-label="Barra de progreso de la canción"
       >
 
-      <span>{{ formatTime(duration) }}</span>
+      <span>{{ formatTime((duration$ | async) || 0) }}</span>
     </div>
 
     <!-- Controles -->
     <div class="controls">
       <button (click)="previous()" aria-label="Canción anterior">⏮</button>
 
-      <button class="play-btn" (click)="togglePlay()" [attr.aria-label]="isPlaying ? 'Pausar' : 'Reproducir'">
-        {{ isPlaying ? '⏸' : '▶' }}
+      <button class="play-btn" (click)="togglePlay()" [attr.aria-label]="(isPlaying$ | async) ? 'Pausar' : 'Reproducir'">
+        {{ (isPlaying$ | async) ? '⏸' : '▶' }}
       </button>
 
       <button (click)="next()" aria-label="Siguiente canción">⏭</button>
 
       <!-- Control de Volumen en la misma fila -->
       <div class="volume-controls">
-        <button class="volume-btn" (click)="toggleMute()" [attr.aria-label]="isMuted ? 'Activar sonido' : 'Silenciar'">
-          {{ isMuted ? '🔇' : (volume > 0.5 ? '🔊' : (volume > 0 ? '🔉' : '🔈')) }}
+        <button class="volume-btn" (click)="toggleMute()" [attr.aria-label]="(isMuted$ | async) ? 'Activar sonido' : 'Silenciar'">
+          {{ (isMuted$ | async) ? '🔇' : (((volume$ | async) || 0) > 0.5 ? '🔊' : (((volume$ | async) || 0) > 0 ? '🔉' : '🔈')) }}
         </button>
 
         <input
@@ -65,14 +52,14 @@
           min="0"
           max="1"
           step="0.01"
-          [value]="volume"
+          [value]="(volume$ | async) || 1"
           (input)="changeVolume($event)"
           class="volume-bar"
-          [style.--volume]="(volume * 100) + '%'"
+          [style.--volume]="(((volume$ | async) || 1) * 100) + '%'"
           aria-label="Control de volumen"
         >
 
-        <span class="volume-percentage">{{ (volume * 100).toFixed(0) }}%</span>
+        <span class="volume-percentage">{{ (((volume$ | async) || 1) * 100).toFixed(0) }}%</span>
       </div>
     </div>
 
@@ -89,7 +76,7 @@
         <button
           class="playlist-item"
           *ngFor="let track of playlist; let i = index"
-          [class.active]="i === currentTrackIndex"
+          [class.active]="i === (currentTrackIndex$ | async)"
           (click)="playTrack(i)"
           [attr.aria-label]="'Reproducir ' + track.title + ' de ' + track.artist">
           <span class="track-number">{{ i + 1 }}</span>
@@ -97,7 +84,7 @@
             <div class="track-title">{{ track.title }}</div>
             <div class="track-artist">{{ track.artist }}</div>
           </div>
-          <span class="play-indicator" *ngIf="i === currentTrackIndex" aria-hidden="true">▶</span>
+          <span class="play-indicator" *ngIf="i === (currentTrackIndex$ | async)" aria-hidden="true">▶</span>
         </button>
       </div>
     </div>
@@ -105,3 +92,4 @@
   </div>
 
 </div>
+

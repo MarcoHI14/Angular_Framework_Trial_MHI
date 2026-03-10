@@ -1,0 +1,38 @@
+<div class="mini-player">
+  <div class="mini-player-content">
+    <div class="mini-player-info">
+      <div class="mini-player-title">♫ Reproduciendo</div>
+      <div class="mini-player-track">
+        <div class="mini-player-artist">Tivoli World</div>
+      </div>
+    </div>
+
+    <div class="mini-player-controls">
+      <button class="mini-btn" (click)="previousTrack()" title="Anterior">
+        ⏮
+      </button>
+
+      <button
+        class="mini-btn play-btn"
+        (click)="togglePlay()"
+        [class.playing]="isPlaying$ | async"
+        title="Reproducir/Pausar">
+        {{ (isPlaying$ | async) ? '⏸' : '▶' }}
+      </button>
+
+      <button class="mini-btn" (click)="nextTrack()" title="Siguiente">
+        ⏭
+      </button>
+    </div>
+
+    <div class="mini-player-progress">
+      <div class="mini-progress-bar">
+        <div
+          class="mini-progress-fill"
+          [style.width.%]="getProgress((currentTime$ | async) || 0, (duration$ | async) || 0)">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

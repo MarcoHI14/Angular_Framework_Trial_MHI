@@ -1,11 +1,12 @@
 import { Component, HostListener, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule, Router } from '@angular/router';
 import { ThemeService } from '../services/theme.service';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './navbar.html',
   styleUrls: ['./navbar.css']
 })
@@ -15,6 +16,7 @@ export class NavbarComponent {
   isDarkMode = false;
 
   private themeService = inject(ThemeService);
+  private router = inject(Router);
 
   constructor() {
     this.themeService.theme$.subscribe(theme => {
@@ -44,6 +46,12 @@ export class NavbarComponent {
 
   toggleTheme() {
     this.themeService.toggleTheme();
+  }
+
+  navigateTo(route: string) {
+    this.router.navigate([route]);
+    this.closeMenu();
+    window.scrollTo(0, 0);
   }
 
   scrollToSection(sectionId: string) {

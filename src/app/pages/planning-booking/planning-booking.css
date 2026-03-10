@@ -1,0 +1,16 @@
+/* Planning and Booking page styles */
+:host {
+  display: block;
+}
+
+app-planner,
+app-booking {
+  display: block;
+  position: relative;
+}
+
+/* Mantiene la estructura de página sin alterar la paleta base de cada componente */
+app-planner ::ng-deep .planner-section,
+app-booking ::ng-deep .booking-section {
+  position: relative;
+}

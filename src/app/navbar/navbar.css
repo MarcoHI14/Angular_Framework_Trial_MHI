@@ -23,6 +23,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
 }
 
 .navbar-brand {
@@ -35,6 +36,7 @@
   margin: 0;
   font-size: clamp(1.2rem, 3vw, 1.8rem);
   letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
 .navbar-menu {
@@ -68,15 +70,19 @@
   display: flex;
   align-items: center;
   gap: 15px;
+  flex-shrink: 0;
 }
 
 .theme-toggle {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  padding: 8px;
+  padding: 0;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -84,8 +90,42 @@
 }
 
 .theme-toggle:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.16);
   transform: rotate(20deg);
+}
+
+@media (max-width: 1024px) {
+  .navbar-menu {
+    display: none !important;
+  }
+
+  .navbar-actions {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .theme-toggle {
+    display: flex !important;
+    width: 38px;
+    height: 38px;
+    font-size: 1.05rem;
+  }
+
+  .hamburger {
+    display: flex !important;
+  }
+
+  .navbar-brand {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .navbar-brand h2 {
+    font-size: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 @media (max-width: 768px) {

@@ -37,6 +37,7 @@ body {
 /* Contenido derecho */
 .content {
   flex: 1;
+  min-width: 0;
 }
 
 /* Información */
@@ -60,10 +61,12 @@ body {
   font-size: 12px;
   color: #666;
   font-weight: 500;
+  width: 100%;
 }
 
 .progress-bar {
   flex: 1;
+  min-width: 0;
   -webkit-appearance: none;
   appearance: none;
   height: 6px;
@@ -410,6 +413,51 @@ body {
 }
 
 @media (max-width: 768px) {
+  .player {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    margin: 16px;
+    padding: 14px;
+    max-width: calc(100% - 32px);
+  }
+
+  .cover-container {
+    position: static;
+    align-self: center;
+  }
+
+  .cover {
+    width: 130px;
+    height: 130px;
+  }
+
+  .progress-container {
+    gap: 8px;
+  }
+
+  .progress-container span {
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  .controls {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .volume-controls {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .volume-bar {
+    width: min(140px, 45vw);
+  }
+
   .playlist {
     max-height: 200px;
   }

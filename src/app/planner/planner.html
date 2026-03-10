@@ -1,0 +1,52 @@
+<section class="planner-section" id="planner">
+  <div class="container">
+    <h2>Planifica tu Visita</h2>
+    <p class="subtitle">Te ayudamos a crear el itinerario perfecto</p>
+
+    <div class="planner-wizard" *ngIf="!showPlan">
+      <div class="progress-bar">
+        <div class="progress" [style.width.%]="((currentStep + 1) / questions.length) * 100"></div>
+      </div>
+
+      <div class="question-card">
+        <h3>{{ questions[currentStep].question }}</h3>
+        <div class="options-grid">
+          <button
+            class="option-btn"
+            *ngFor="let option of questions[currentStep].options"
+            (click)="selectOption(option.value)"
+            [class.selected]="answers[questions[currentStep].id] === option.value">
+            <span class="option-icon">{{ option.icon }}</span>
+            <span class="option-label">{{ option.label }}</span>
+          </button>
+        </div>
+      </div>
+
+      <button class="back-btn" *ngIf="currentStep > 0" (click)="previousStep()">
+        ← Anterior
+      </button>
+    </div>
+
+    <div class="plan-result" *ngIf="showPlan">
+      <h3>🎯 Tu itinerario personalizado</h3>
+
+      <div class="itinerary-list">
+        <div class="itinerary-item" *ngFor="let item of itinerary; let i = index">
+          <div class="item-number">{{ i + 1 }}</div>
+          <div class="item-icon">{{ item.icon }}</div>
+          <div class="item-details">
+            <div class="item-time">{{ item.time }}</div>
+            <div class="item-name">{{ item.name }}</div>
+            <div class="item-zone">{{ item.zone }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <button class="save-btn" (click)="savePlan()">💾 Guardar plan</button>
+        <button class="restart-btn" (click)="restart()">🔄 Nuevo plan</button>
+      </div>
+    </div>
+  </div>
+</section>
+

@@ -1,7 +1,7 @@
 .info {
-  background: linear-gradient(135deg, #c8102e 0%, #ffd200 100%);
+  background: linear-gradient(135deg, var(--tivoli-red) 0%, var(--tivoli-yellow) 100%);
   padding: 100px 20px 100px 20px;
-  color: #111111;
+  color: var(--tivoli-black);
   position: relative;
 }
 
@@ -12,7 +12,7 @@
   left: 0;
   right: 0;
   height: 80px;
-  background: linear-gradient(to bottom, #c8102e, transparent);
+  background: linear-gradient(to bottom, var(--tivoli-red), transparent);
   pointer-events: none;
 }
 
@@ -23,7 +23,7 @@
   left: 0;
   right: 0;
   height: 100px;
-  background: linear-gradient(to bottom, transparent, #111111);
+  background: linear-gradient(to bottom, transparent, var(--tivoli-black));
   pointer-events: none;
 }
 
@@ -36,7 +36,7 @@ h2 {
   font-size: clamp(2rem, 5vw, 3rem);
   margin-bottom: 20px;
   font-weight: 800;
-  color: #111111;
+  color: var(--tivoli-white);
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
@@ -47,6 +47,7 @@ h2 {
   opacity: 0.9;
   font-weight: 500;
   letter-spacing: 0.01em;
+  color: var(--tivoli-white);
 }
 
 .info-grid {
@@ -88,6 +89,7 @@ h2 {
   margin-bottom: 10px;
   line-height: 1.7;
   font-weight: 400;
+  color: #111111;
 }
 
 .info-note {
@@ -96,24 +98,25 @@ h2 {
   opacity: 0.85;
   font-style: italic;
   letter-spacing: 0.01em;
+  color: #111111;
 }
 
 .cta-section {
   text-align: center;
   margin-top: 60px;
-  background: rgba(17, 17, 17, 0.86);
-  color: #ffffff;
+  background: rgba(245, 245, 245, 0.9);
+  color: #111111;
   backdrop-filter: blur(8px);
   padding: 50px 30px;
   border-radius: 25px;
-  border: 2px solid #ffd200;
+  border: 2px solid var(--tivoli-yellow);
 }
 
 .cta-section h3 {
   font-size: clamp(1.8rem, 4vw, 2.5rem);
   margin-bottom: 15px;
   font-weight: 800;
-  color: #ffd200;
+  color: #c8102e;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -123,6 +126,7 @@ h2 {
   margin-bottom: 30px;
   opacity: 0.95;
   font-weight: 400;
+  color: #111111;
 }
 
 .cta-button {
@@ -150,3 +154,35 @@ h2 {
 .cta-button:active {
   transform: translateY(-1px);
 }
+
+/* Dark mode */
+:root[data-theme="dark"] h2 {
+  color: #111111;
+}
+
+:root[data-theme="dark"] .subtitle {
+  color: #111111;
+}
+
+:root[data-theme="dark"] .info-card {
+  background: rgba(50, 50, 50, 0.8);
+}
+
+:root[data-theme="dark"] .info-card:hover {
+  background: rgba(70, 70, 70, 0.9);
+}
+
+:root[data-theme="dark"] .cta-section {
+  background: #1a1a1a !important;
+}
+
+:root[data-theme="dark"] .cta-button {
+  color: #ffffff;
+}
+
+:root[data-theme="dark"] .cta-button:hover {
+  color: #111111;
+}
+
+
+

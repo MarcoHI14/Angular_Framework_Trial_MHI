@@ -1,0 +1,52 @@
+<section class="booking-section" id="booking">
+  <div class="container">
+    <h2>Reserva tus Entradas</h2>
+    <p class="subtitle">¡Ahorra hasta un 20% comprando online!</p>
+
+    <div class="booking-form">
+      <div class="date-selector">
+        <label>📅 Fecha de visita:</label>
+        <input type="date" [(ngModel)]="selectedDate" [min]="minDate">
+      </div>
+
+      <div class="tickets-grid">
+        <div class="ticket-card" *ngFor="let ticket of ticketTypes">
+          <div class="ticket-info">
+            <h3>{{ ticket.name }}</h3>
+            <p>{{ ticket.description }}</p>
+            <div class="price">{{ ticket.price }}€</div>
+          </div>
+          <div class="quantity-selector">
+            <button (click)="decrement(ticket.id)" [disabled]="quantities[ticket.id] === 0">−</button>
+            <span>{{ quantities[ticket.id] }}</span>
+            <button (click)="increment(ticket.id)" [disabled]="quantities[ticket.id] >= 10">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="summary" *ngIf="getTotalTickets() > 0">
+        <h3>Resumen de compra</h3>
+        <div class="summary-row">
+          <span>Subtotal ({{ getTotalTickets() }} entradas):</span>
+          <span>{{ getSubtotal() }}€</span>
+        </div>
+        <div class="summary-row discount">
+          <span>🎁 Descuento online (20%):</span>
+          <span>-{{ getOnlineDiscount() }}€</span>
+        </div>
+        <div class="summary-row total">
+          <span>Total:</span>
+          <span>{{ getTotal() }}€</span>
+        </div>
+        <button class="book-btn" (click)="confirmBooking()">
+          Confirmar reserva
+        </button>
+      </div>
+    </div>
+
+    <div class="confirmation-toast" *ngIf="showConfirmation">
+      ✅ ¡Reserva confirmada! Te hemos enviado un email con los detalles.
+    </div>
+  </div>
+</section>
+

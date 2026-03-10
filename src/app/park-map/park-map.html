@@ -1,0 +1,71 @@
+<section class="map-section" id="park-map">
+  <div class="container">
+    <h2>Mapa del Parque</h2>
+    <p class="subtitle">Explora las diferentes zonas de Tivoli World</p>
+
+    <div class="map-container">
+      <figure class="park-map-image-wrapper">
+        <img
+          class="park-map-image"
+          src="assets/images/mapa.png"
+          alt="Mapa de atracciones de Tivoli World"
+          loading="lazy" />
+      </figure>
+
+      <div class="map-grid">
+        <div
+          class="zone-card"
+          *ngFor="let zone of zones"
+          (click)="selectZone(zone)"
+          [style.border-color]="zone.color">
+          <div class="zone-icon" [style.color]="zone.color">{{ zone.icon }}</div>
+          <h3>{{ zone.name }}</h3>
+          <p>{{ zone.attractions.length }} atracciones</p>
+        </div>
+      </div>
+
+      <div class="map-legend">
+        <h4>Servicios disponibles:</h4>
+        <div class="legend-items">
+          <span>🚻 Baños</span>
+          <span>🍔 Restaurantes</span>
+          <span>ℹ️ Información</span>
+          <span>🏥 Primeros auxilios</span>
+          <span>🅿️ Parking</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="zone-detail" *ngIf="selectedZone">
+      <div class="detail-overlay" (click)="closeInfo()"></div>
+      <div class="detail-content">
+        <button class="close-btn" (click)="closeInfo()">✕</button>
+
+        <div class="detail-header" [style.background]="selectedZone.color">
+          <div class="detail-icon">{{ selectedZone.icon }}</div>
+          <h2>{{ selectedZone.name }}</h2>
+        </div>
+
+        <div class="detail-body">
+          <div class="detail-section">
+            <h3>🎡 Atracciones</h3>
+            <ul>
+              <li *ngFor="let attraction of selectedZone.attractions">{{ attraction }}</li>
+            </ul>
+          </div>
+
+          <div class="detail-section">
+            <h3>🔧 Servicios</h3>
+            <ul>
+              <li *ngFor="let service of selectedZone.services">{{ service }}</li>
+            </ul>
+          </div>
+
+          <button class="navigate-btn" [style.background]="selectedZone.color">
+            📍 Cómo llegar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -12,6 +12,59 @@
         <div class="card-content">
           <h3>{{ attraction.name }}</h3>
           <p>{{ attraction.description }}</p>
+
+          <!-- Rating Section -->
+          <div class="rating-section">
+            <div class="stars">
+              <span *ngFor="let star of getStars(reviewsService.getAverageRating(attraction.id))">{{ star }}</span>
+            </div>
+            <span class="rating-text">
+              {{ reviewsService.getAverageRating(attraction.id) }}
+              ({{ reviewsService.getReviewCount(attraction.id) }} reseñas)
+            </span>
+          </div>
+
+          <button class="reviews-btn" (click)="openReviews(attraction)">
+            Ver opiniones
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Reviews -->
+  <div class="reviews-modal" *ngIf="showReviews" (click)="closeReviews()">
+    <div class="reviews-content" (click)="$event.stopPropagation()">
+      <button class="close-btn" (click)="closeReviews()">✕</button>
+
+      <h2>{{ selectedAttraction?.name }}</h2>
+
+      <div class="overall-rating">
+        <div class="rating-number">{{ reviewsService.getAverageRating(selectedAttraction!.id) }}</div>
+        <div class="stars-large">
+          <span *ngFor="let star of getStars(reviewsService.getAverageRating(selectedAttraction!.id))">{{ star }}</span>
+        </div>
+        <div class="rating-count">{{ reviewsService.getReviewCount(selectedAttraction!.id) }} valoraciones</div>
+      </div>
+
+      <div class="reviews-list">
+        <div class="review-card" *ngFor="let review of reviewsService.getReviewsByAttraction(selectedAttraction!.id)">
+          <div class="review-header">
+            <div class="review-author">
+              <div class="avatar">{{ review.author.charAt(0) }}</div>
+              <div>
+                <div class="author-name">{{ review.author }}</div>
+                <div class="review-date">{{ review.date }}</div>
+              </div>
+            </div>
+            <div class="review-stars">
+              <span *ngFor="let star of getStars(review.rating)">{{ star }}</span>
+            </div>
+          </div>
+          <p class="review-comment">{{ review.comment }}</p>
+          <button class="like-btn" (click)="likeReview(review.id)">
+            👍 {{ review.likes }}
+          </button>
         </div>
       </div>
     </div>

@@ -1,16 +1,13 @@
 import { Component, signal } from '@angular/core';
-import {Hero} from './hero/hero';
-import {About} from './about/about';
-import {AttractionsComponent} from './attractions/attractions';
-import {Gallery} from './gallery/gallery';
-import {Info} from './info/info';
-import {Footer} from './footer/footer';
-import {NavbarComponent} from './navbar/navbar';
-import {ScrollToTopComponent} from './scroll-to-top/scroll-to-top';
+import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from './navbar/navbar';
+import { Footer } from './footer/footer';
+import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top';
+import { ChatbotComponent } from './chatbot/chatbot';
 
 @Component({
   selector: 'app-root',
-  imports: [Hero, About, AttractionsComponent, Gallery, Info, Footer, NavbarComponent, ScrollToTopComponent],
+  imports: [RouterOutlet, NavbarComponent, Footer, ScrollToTopComponent, ChatbotComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

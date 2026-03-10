@@ -1,15 +1,14 @@
 <nav class="navbar" [class.scrolled]="isScrolled">
   <div class="navbar-container">
     <div class="navbar-brand">
-      <h2>🎢 Tivoli World</h2>
+      <a (click)="navigateTo('')" style="cursor: pointer;">🎢 Tivoli World</a>
     </div>
 
     <!-- Menu Desktop -->
     <ul class="navbar-menu">
-      <li><a (click)="scrollToSection('about')">Sobre Nosotros</a></li>
-      <li><a (click)="scrollToSection('attractions')">Atracciones</a></li>
-      <li><a (click)="scrollToSection('gallery')">Galería</a></li>
-      <li><a (click)="scrollToSection('info')">Información</a></li>
+      <li><a (click)="navigateTo('')">Inicio</a></li>
+      <li><a (click)="navigateTo('historia-mapa')">Historia y Mapa</a></li>
+      <li><a (click)="navigateTo('planificacion-reserva')">Planificación y Reserva</a></li>
     </ul>
 
     <!-- Theme Toggle + Hamburger Menu -->
@@ -29,10 +28,9 @@
   <!-- Mobile Menu -->
   <div class="mobile-menu" [class.open]="isMenuOpen">
     <ul class="mobile-menu-list">
-      <li><a (click)="scrollToSection('about')">Sobre Nosotros</a></li>
-      <li><a (click)="scrollToSection('attractions')">Atracciones</a></li>
-      <li><a (click)="scrollToSection('gallery')">Galería</a></li>
-      <li><a (click)="scrollToSection('info')">Información</a></li>
+      <li><a (click)="navigateTo('')">Inicio</a></li>
+      <li><a (click)="navigateTo('historia-mapa')">Historia y Mapa</a></li>
+      <li><a (click)="navigateTo('planificacion-reserva')">Planificación y Reserva</a></li>
     </ul>
   </div>
 </nav>
