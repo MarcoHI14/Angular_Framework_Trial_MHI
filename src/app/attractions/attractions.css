@@ -347,19 +347,50 @@ h2 {
 }
 
 @media (max-width: 768px) {
+  .attractions {
+    padding: 60px 16px 80px 16px;
+  }
+
+  .attractions-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card-image {
+    height: 200px;
+  }
+
+  .card-content {
+    padding: 18px 16px;
+  }
+
   .reviews-content {
-    padding: 30px 20px;
+    padding: 24px 16px;
+    border-radius: 14px;
   }
 
-  .reviews-content h2 {
-    font-size: 1.5rem;
+  .review-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-image {
+    height: 170px;
   }
 
-  .rating-number {
-    font-size: 3rem;
+  .card-badge {
+    font-size: 0.75rem;
+    padding: 6px 10px;
   }
 
-  .stars-large {
-    font-size: 1.5rem;
+  .stars {
+    font-size: 1rem;
+  }
+
+  .reviews-btn {
+    font-size: 0.9rem;
+    padding: 10px 14px;
   }
 }
