@@ -10,7 +10,7 @@
   z-index: 100;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   min-width: 220px;
-  color: #ffffff;
+  color: var(--text-on-dark);
 }
 
 .mini-player-content {
@@ -40,7 +40,7 @@
 }
 
 .mini-player-artist {
-  color: #ffffff;
+  color: var(--text-on-dark);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -142,48 +142,47 @@
 }
 
 /* ===== DARK MODE ===== */
-:root[data-theme="dark"] .mini-player {
+:host-context([data-theme="dark"]) .mini-player {
   background: linear-gradient(135deg, rgba(200, 16, 46, 0.8), rgba(255, 149, 0, 0.2));
   border: 2px solid rgba(200, 16, 46, 0.7);
   box-shadow: 0 8px 32px rgba(200, 16, 46, 0.6);
 }
 
-:root[data-theme="dark"] .mini-player-title {
-  color: #ff9500;
+:host-context([data-theme="dark"]) .mini-player-title {
+  color: var(--accent-warm);
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-:root[data-theme="dark"] .mini-player-artist {
-  color: #ffffff;
+:host-context([data-theme="dark"]) .mini-player-artist {
+  color: var(--text-on-dark);
 }
 
-:root[data-theme="dark"] .mini-btn {
+:host-context([data-theme="dark"]) .mini-btn {
   background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #ffffff;
+  border: 1px solid var(--border-default);
+  color: var(--text-on-dark);
 }
 
-:root[data-theme="dark"] .mini-btn:hover {
+:host-context([data-theme="dark"]) .mini-btn:hover {
   background: rgba(255, 255, 255, 0.25);
   border-color: rgba(255, 255, 255, 0.4);
 }
 
-:root[data-theme="dark"] .mini-btn.play-btn {
+:host-context([data-theme="dark"]) .mini-btn.play-btn {
   background: linear-gradient(135deg, #c8102e, #ff6b6b);
-  border-color: #ff9500;
+  border-color: var(--accent-warm);
   box-shadow: 0 0 12px rgba(200, 16, 46, 0.8);
 }
 
-:root[data-theme="dark"] .mini-btn.play-btn:hover {
+:host-context([data-theme="dark"]) .mini-btn.play-btn:hover {
   background: linear-gradient(135deg, #ff6b6b, #c8102e);
   box-shadow: 0 0 16px rgba(200, 16, 46, 1);
 }
 
-:root[data-theme="dark"] .mini-progress-bar {
+:host-context([data-theme="dark"]) .mini-progress-bar {
   background: rgba(255, 255, 255, 0.15);
 }
 
-:root[data-theme="dark"] .mini-progress-fill {
-  background: linear-gradient(90deg, #ff9500, #ffd200);
+:host-context([data-theme="dark"]) .mini-progress-fill {
+  background: linear-gradient(90deg, var(--accent-warm), var(--accent-secondary));
 }
-
