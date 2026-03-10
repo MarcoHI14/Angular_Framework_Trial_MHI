@@ -4,13 +4,13 @@ import { About } from '../../about/about';
 import { AttractionsComponent } from '../../attractions/attractions';
 import { Gallery } from '../../gallery/gallery';
 import { Info } from '../../info/info';
+import { MiniPlayerComponent } from '../../mini-player/mini-player';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [Hero, About, AttractionsComponent, Gallery, Info],
+  imports: [Hero, About, AttractionsComponent, Gallery, Info, MiniPlayerComponent],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
 export class HomeComponent {}
-

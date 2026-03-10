@@ -140,8 +140,8 @@
   }
 
   .mini-player.mobile-collapsed {
-    left: auto;
-    right: 15px;
+    left: 15px;
+    right: auto;
     max-width: 170px;
     padding: 8px 10px;
   }
