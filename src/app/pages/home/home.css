@@ -1,4 +1,20 @@
 /* Home page styles */
 
 
+.desktop-player-wrap {
+  display: block;
+}
 
+.mobile-player-wrap {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-player-wrap {
+    display: none;
+  }
+
+  .mobile-player-wrap {
+    display: block;
+  }
+}
