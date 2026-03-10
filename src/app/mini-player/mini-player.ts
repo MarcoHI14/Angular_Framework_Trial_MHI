@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AudioService } from '../services/audio.service';
+import { map } from 'rxjs';
+import { AudioService, Track } from '../services/audio.service';
 
 @Component({
   selector: 'app-mini-player',
@@ -19,6 +20,10 @@ export class MiniPlayerComponent implements OnInit {
   volume$ = this.audioService.volume$;
 
   isMobileCollapsed = false;
+
+  currentTrackInfo$ = this.currentTrack$.pipe(
+    map((index) => this.audioService.getPlaylist()[index] ?? ({ title: 'Sin pista', artist: 'Tivoli World' } as Track)),
+  );
 
   ngOnInit(): void {
     this.syncMobileState();
