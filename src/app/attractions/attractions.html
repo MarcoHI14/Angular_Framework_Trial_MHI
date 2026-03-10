@@ -24,7 +24,7 @@
             </span>
           </div>
 
-          <button class="reviews-btn" (click)="openReviews(attraction)">
+          <button class="reviews-btn" (click)="openReviews(attraction)" aria-label="Ver opiniones de {{ attraction.name }}">
             Ver opiniones
           </button>
         </div>
@@ -35,7 +35,7 @@
   <!-- Modal de Reviews -->
   <div class="reviews-modal" *ngIf="showReviews" (click)="closeReviews()">
     <div class="reviews-content" (click)="$event.stopPropagation()">
-      <button class="close-btn" (click)="closeReviews()">✕</button>
+      <button class="close-btn" (click)="closeReviews()" aria-label="Cerrar opiniones">✕</button>
 
       <h2>{{ selectedAttraction?.name }}</h2>
 
@@ -62,7 +62,7 @@
             </div>
           </div>
           <p class="review-comment">{{ review.comment }}</p>
-          <button class="like-btn" (click)="likeReview(review.id)">
+          <button class="like-btn" (click)="likeReview(review.id)" aria-label="Dar me gusta a la reseña de {{ review.author }}">
             👍 {{ review.likes }}
           </button>
         </div>

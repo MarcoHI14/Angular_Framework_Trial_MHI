@@ -129,16 +129,39 @@
 }
 
 @media (max-width: 768px) {
-  .navbar-menu {
-    display: none;
+  .navbar-container {
+    padding: 0 14px;
   }
 
+  .theme-toggle,
   .hamburger {
-    display: flex;
+    min-width: 44px;
+    min-height: 44px;
   }
 
-  .navbar-brand h2 {
-    font-size: 1.2rem;
+  .mobile-menu-list li a {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    padding: 14px 20px;
+  }
+
+  .mobile-menu-list li a:active {
+    background: rgba(200, 16, 46, 0.28);
+    color: #ffd200;
+  }
+
+  .theme-toggle:active,
+  .hamburger:active {
+    transform: scale(0.96);
+  }
+}
+
+@media (hover: none) {
+  .navbar-menu li a:hover,
+  .mobile-menu-list li a:hover,
+  .theme-toggle:hover {
+    transform: none;
   }
 }
 

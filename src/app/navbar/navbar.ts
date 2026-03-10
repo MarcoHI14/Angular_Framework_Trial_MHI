@@ -1,4 +1,4 @@
-import { Component, HostListener, inject } from '@angular/core';
+import { Component, HostListener, OnDestroy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { ThemeService } from '../services/theme.service';
@@ -10,7 +10,7 @@ import { ThemeService } from '../services/theme.service';
   templateUrl: './navbar.html',
   styleUrls: ['./navbar.css']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnDestroy {
   isScrolled = false;
   isMenuOpen = false;
   isDarkMode = false;
@@ -33,15 +33,26 @@ export class NavbarComponent {
   onWindowResize() {
     if (window.innerWidth > 768) {
       this.isMenuOpen = false;
+      this.applyBodyScrollLock();
     }
   }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+    this.applyBodyScrollLock();
   }
 
   closeMenu() {
     this.isMenuOpen = false;
+    this.applyBodyScrollLock();
+  }
+
+  private applyBodyScrollLock() {
+    document.body.style.overflow = this.isMenuOpen ? 'hidden' : '';
+  }
+
+  ngOnDestroy() {
+    document.body.style.overflow = '';
   }
 
   toggleTheme() {
@@ -62,4 +73,3 @@ export class NavbarComponent {
     }
   }
 }
-

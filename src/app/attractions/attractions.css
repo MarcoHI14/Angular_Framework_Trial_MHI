@@ -122,6 +122,10 @@ h2 {
   line-height: 1.7;
   opacity: 0.85;
   font-weight: 400;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* Rating Section */
@@ -158,6 +162,13 @@ h2 {
   transition: all 0.3s ease;
   width: 100%;
   font-size: 0.95rem;
+  min-height: 44px;
+}
+
+.reviews-btn:active,
+.like-btn:active,
+.close-btn:active {
+  transform: scale(0.98);
 }
 
 .reviews-btn:hover {
@@ -219,6 +230,7 @@ h2 {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  min-height: 44px;
 }
 
 .close-btn:hover {
@@ -338,6 +350,7 @@ h2 {
   transition: all 0.2s ease;
   font-size: 0.9rem;
   color: #666;
+  min-height: 44px;
 }
 
 .like-btn:hover {
@@ -373,6 +386,16 @@ h2 {
     flex-direction: column;
     gap: 8px;
   }
+
+  .reviews-btn,
+  .close-btn,
+  .like-btn {
+    min-height: 48px;
+  }
+
+  .reviews-modal {
+    padding: 12px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -392,5 +415,27 @@ h2 {
   .reviews-btn {
     font-size: 0.9rem;
     padding: 10px 14px;
+  }
+}
+
+@media (hover: none) {
+  .attraction-card:hover,
+  .review-card:hover,
+  .reviews-btn:hover,
+  .like-btn:hover,
+  .close-btn:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .attraction-card,
+  .review-card,
+  .reviews-btn,
+  .like-btn,
+  .close-btn,
+  .card-image img {
+    transition: none !important;
   }
 }

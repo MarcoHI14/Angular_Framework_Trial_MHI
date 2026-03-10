@@ -82,6 +82,10 @@ h2 {
   transform: scale(1.15);
 }
 
+.gallery-item:active {
+  transform: scale(0.98);
+}
+
 .gallery-overlay {
   position: absolute;
   bottom: 0;
@@ -130,5 +134,25 @@ h2 {
 
   .gallery-overlay span {
     font-size: 0.8rem;
+  }
+}
+
+@media (hover: none) {
+  .gallery-overlay {
+    transform: translateY(0);
+  }
+
+  .gallery-item:hover img,
+  .gallery-item:hover {
+    transform: none;
+    border-color: transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-item,
+  .gallery-item img,
+  .gallery-overlay {
+    transition: none !important;
   }
 }
