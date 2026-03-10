@@ -156,33 +156,47 @@ h2 {
 }
 
 /* Dark mode */
-:root[data-theme="dark"] h2 {
+:host-context([data-theme="dark"]) h2,
+:host-context([data-theme="dark"]) .subtitle {
   color: #111111;
 }
 
-:root[data-theme="dark"] .subtitle {
-  color: #111111;
+:host-context([data-theme="dark"]) .info-card {
+  background: #111111;
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
-:root[data-theme="dark"] .info-card {
-  background: rgba(50, 50, 50, 0.8);
+:host-context([data-theme="dark"]) .info-card:hover {
+  background: #1f1f1f;
 }
 
-:root[data-theme="dark"] .info-card:hover {
-  background: rgba(70, 70, 70, 0.9);
+:host-context([data-theme="dark"]) .info-card h3 {
+  color: #ffd200;
 }
 
-:root[data-theme="dark"] .cta-section {
-  background: #1a1a1a !important;
-}
-
-:root[data-theme="dark"] .cta-button {
+:host-context([data-theme="dark"]) .info-detail,
+:host-context([data-theme="dark"]) .info-note {
   color: #ffffff;
 }
 
-:root[data-theme="dark"] .cta-button:hover {
-  color: #111111;
+:host-context([data-theme="dark"]) .cta-section {
+  background: #111111;
+  color: #ffffff;
+  border-color: #ffd200;
 }
 
+:host-context([data-theme="dark"]) .cta-section h3 {
+  color: #ffd200;
+}
 
+:host-context([data-theme="dark"]) .cta-section p {
+  color: #ffffff;
+}
 
+:host-context([data-theme="dark"]) .cta-button {
+  color: #ffffff;
+}
+
+:host-context([data-theme="dark"]) .cta-button:hover {
+  color: #111111;
+}

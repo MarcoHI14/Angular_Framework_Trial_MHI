@@ -84,6 +84,7 @@ footer::before {
   display: flex;
   gap: 15px;
   margin-top: 15px;
+  justify-content: center;
 }
 
 .social-icon {
@@ -133,3 +134,12 @@ footer::before {
   font-size: 0.9rem;
   opacity: 0.62;
 }
+
+.footer-social {
+  text-align: center;
+}
+
+.footer-social h4 {
+  text-align: center;
+}
+

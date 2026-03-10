@@ -74,40 +74,32 @@ app-mini-player {
 }
 
 /* ===== DARK MODE ===== */
-:root[data-theme="dark"] :host {
+:host-context([data-theme="dark"]) {
   background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
 }
 
-:root[data-theme="dark"] app-timeline ::ng-deep .timeline-section {
+:host-context([data-theme="dark"]) app-timeline ::ng-deep .timeline-section {
   background: linear-gradient(135deg, #8b0a1a 0%, #cc6600 50%, #8b3a00 100%);
   box-shadow: 0 8px 32px rgba(200, 16, 46, 0.4);
 }
 
-:root[data-theme="dark"] app-timeline ::ng-deep .timeline-section::after {
+:host-context([data-theme="dark"]) app-timeline ::ng-deep .timeline-section::after {
   background: linear-gradient(to bottom, rgba(200, 16, 46, 0.2), rgba(200, 16, 46, 0.1), #1a1a1a);
 }
 
-:root[data-theme="dark"] app-park-map {
+:host-context([data-theme="dark"]) app-park-map {
   background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
 }
 
-:root[data-theme="dark"] app-park-map ::ng-deep .map-section {
+:host-context([data-theme="dark"]) app-park-map ::ng-deep .map-section {
   background: linear-gradient(135deg, #8b0a1a 0%, #cc6600 50%, #8b3a00 100%);
   box-shadow: 0 -8px 32px rgba(200, 16, 46, 0.4);
 }
 
-:root[data-theme="dark"] app-park-map ::ng-deep .map-section::before {
+:host-context([data-theme="dark"]) app-park-map ::ng-deep .map-section::before {
   background: linear-gradient(to bottom, #1a1a1a, rgba(200, 16, 46, 0.2), transparent);
 }
 
-:root[data-theme="dark"] app-park-map ::ng-deep .map-section::after {
+:host-context([data-theme="dark"]) app-park-map ::ng-deep .map-section::after {
   background: linear-gradient(to bottom, transparent, rgba(200, 16, 46, 0.2), #8b0a1a);
 }
-
-
-
-
-
-
-
-
