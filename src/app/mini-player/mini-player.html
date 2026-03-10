@@ -1,4 +1,12 @@
-<div class="mini-player">
+<div class="mini-player" [class.mobile-collapsed]="isMobileCollapsed">
+  <button
+    class="mini-toggle"
+    type="button"
+    (click)="toggleMobileCollapse()"
+    [attr.aria-label]="isMobileCollapsed ? 'Expandir reproductor' : 'Colapsar reproductor'">
+    {{ isMobileCollapsed ? '▲' : '▼' }}
+  </button>
+
   <div class="mini-player-content">
     <div class="mini-player-info">
       <div class="mini-player-title">♫ Reproduciendo</div>

@@ -11,6 +11,22 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   min-width: 220px;
   color: var(--text-on-dark);
+  transition: padding 0.25s ease, max-width 0.25s ease;
+}
+
+.mini-toggle {
+  display: none;
+  width: 30px;
+  height: 30px;
+  margin-left: auto;
+  margin-bottom: 6px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--text-on-dark);
+  cursor: pointer;
+  font-size: 0.8rem;
+  line-height: 1;
 }
 
 .mini-player-content {
@@ -115,6 +131,33 @@
     min-width: unset;
     width: auto;
     max-width: calc(100% - 30px);
+  }
+
+  .mini-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mini-player.mobile-collapsed {
+    left: auto;
+    right: 15px;
+    max-width: 170px;
+    padding: 8px 10px;
+  }
+
+  .mini-player.mobile-collapsed .mini-player-info,
+  .mini-player.mobile-collapsed .mini-player-progress,
+  .mini-player.mobile-collapsed .mini-btn:not(.play-btn) {
+    display: none;
+  }
+
+  .mini-player.mobile-collapsed .mini-player-content {
+    gap: 4px;
+  }
+
+  .mini-player.mobile-collapsed .mini-player-controls {
+    justify-content: center;
   }
 
   .mini-player-controls {

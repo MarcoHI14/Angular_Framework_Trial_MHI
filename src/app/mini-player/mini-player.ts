@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AudioService } from '../services/audio.service';
 
@@ -18,8 +18,15 @@ export class MiniPlayerComponent implements OnInit {
   duration$ = this.audioService.duration$;
   volume$ = this.audioService.volume$;
 
+  isMobileCollapsed = false;
+
   ngOnInit(): void {
-    // Inicializar el servicio de audio
+    this.syncMobileState();
+  }
+
+  @HostListener('window:resize')
+  onWindowResize(): void {
+    this.syncMobileState();
   }
 
   togglePlay(): void {
@@ -40,6 +47,21 @@ export class MiniPlayerComponent implements OnInit {
 
   setVolume(volume: number): void {
     this.audioService.setVolume(volume);
+  }
+
+  toggleMobileCollapse(): void {
+    this.isMobileCollapsed = !this.isMobileCollapsed;
+  }
+
+  private syncMobileState(): void {
+    if (typeof window === 'undefined') return;
+
+    if (window.innerWidth > 768) {
+      this.isMobileCollapsed = false;
+    } else if (!this.isMobileCollapsed) {
+      // En móvil iniciamos en modo compacto para no tapar contenido.
+      this.isMobileCollapsed = true;
+    }
   }
 
   formatTime(seconds: number): string {
