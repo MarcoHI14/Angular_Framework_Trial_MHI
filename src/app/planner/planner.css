@@ -46,3 +46,60 @@
 }
 
 @media (max-width:768px){.planner-wizard,.plan-result{padding:25px}.options-grid{grid-template-columns:repeat(2,1fr)}.option-btn{padding:20px 15px}.option-icon{font-size:2.5rem}.action-buttons{flex-direction:column}}
+
+@media (max-width: 768px) {
+  .planner-section {
+    padding: 60px 16px 60px 16px;
+  }
+
+  .planner-wizard,
+  .plan-result {
+    padding: 22px 14px;
+  }
+
+  .options-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .option-btn {
+    padding: 18px 10px;
+  }
+
+  .option-icon {
+    font-size: 2rem;
+  }
+
+  .option-label {
+    font-size: 0.9rem;
+  }
+
+  .itinerary-item {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 14px;
+  }
+
+  .item-name {
+    font-size: 1rem;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .save-btn, .restart-btn {
+    width: 100%;
+    padding: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .options-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .question-card h3 {
+    font-size: 1.3rem;
+  }
+}

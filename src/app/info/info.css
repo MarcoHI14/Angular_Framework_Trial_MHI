@@ -200,3 +200,29 @@ h2 {
 :host-context([data-theme="dark"]) .cta-button:hover {
   color: #111111;
 }
+
+@media (max-width: 768px) {
+  .info {
+    padding: 60px 16px 80px 16px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-card {
+    padding: 24px 18px;
+  }
+
+  .cta-section {
+    padding: 32px 18px;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-button {
+    width: 100%;
+    padding: 16px 20px;
+  }
+}
