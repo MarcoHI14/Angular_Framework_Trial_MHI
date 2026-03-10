@@ -142,11 +142,10 @@
   .mini-player.mobile-collapsed {
     left: 15px;
     right: auto;
-    max-width: 170px;
+    max-width: 220px;
     padding: 8px 10px;
   }
 
-  .mini-player.mobile-collapsed .mini-player-info,
   .mini-player.mobile-collapsed .mini-player-progress,
   .mini-player.mobile-collapsed .mini-btn:not(.play-btn) {
     display: none;
@@ -154,6 +153,18 @@
 
   .mini-player.mobile-collapsed .mini-player-content {
     gap: 4px;
+  }
+
+  .mini-player.mobile-collapsed .mini-player-info {
+    display: block;
+    max-width: 200px;
+  }
+
+  .mini-player.mobile-collapsed .mini-player-title,
+  .mini-player.mobile-collapsed .mini-player-artist {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .mini-player.mobile-collapsed .mini-player-controls {
