@@ -29,7 +29,7 @@
       <div class="footer-section footer-qr">
         <h4>Escanea el QR</h4>
         <button class="qr-trigger" type="button" (click)="openQr()" aria-label="Ampliar codigo QR">
-          <img src="assets/images/qr-watch-now.png" alt="Codigo QR para ver contenido" class="qr-thumb">
+          <img src="assets/images/qr.png" alt="Codigo QR para ver contenido" class="qr-thumb">
         </button>
       </div>
     </div>
@@ -42,7 +42,7 @@
   <div class="qr-modal" *ngIf="isQrOpen" (click)="closeQr()">
     <div class="qr-modal-content" (click)="$event.stopPropagation()">
       <button class="qr-close" type="button" (click)="closeQr()" aria-label="Cerrar QR ampliado">✕</button>
-      <img src="assets/images/qr-watch-now.png" alt="Codigo QR ampliado" class="qr-large">
+      <img src="assets/images/qr.png" alt="Codigo QR ampliado" class="qr-large">
     </div>
   </div>
 </footer>
