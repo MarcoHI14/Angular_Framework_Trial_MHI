@@ -143,6 +143,72 @@ footer::before {
   text-align: center;
 }
 
+.footer-qr {
+  text-align: center;
+}
+
+.qr-trigger {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  padding: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.qr-trigger:hover {
+  transform: translateY(-2px);
+  border-color: #ffd200;
+}
+
+.qr-thumb {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+.qr-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 3000;
+}
+
+.qr-modal-content {
+  position: relative;
+  background: #111111;
+  border: 2px solid #ffd200;
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.qr-large {
+  width: min(86vw, 560px);
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+
+.qr-close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 34px;
+  height: 34px;
+  border: 2px solid #ffd200;
+  border-radius: 50%;
+  background: #c8102e;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
 @media (max-width: 768px) {
   footer {
     padding: 60px 16px 24px 16px;
@@ -173,5 +239,10 @@ footer::before {
 
   .footer-meta {
     font-size: 0.8rem;
+  }
+
+  .qr-thumb {
+    width: 140px;
+    height: 140px;
   }
 }
