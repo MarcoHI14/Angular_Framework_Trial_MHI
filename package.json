@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "deploy-all": "npm run deploy && git add . && git commit -m \"deploy\" && git push",
-    "deploy": "ng build --output-path docs --base-href ./ && powershell Move-Item docs/browser/* docs/ -Force && powershell Remove-Item docs/browser -Recurse -Force"
+    "deploy": "ng build --output-path docs --base-href ./ && powershell Copy-Item docs/browser/index.html docs/browser/404.html -Force && powershell Move-Item docs/browser/* docs/ -Force && powershell Remove-Item docs/browser -Recurse -Force"
   },
   "prettier": {
     "printWidth": 100,
